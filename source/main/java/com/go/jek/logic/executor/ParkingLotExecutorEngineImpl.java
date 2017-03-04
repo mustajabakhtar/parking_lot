@@ -4,6 +4,7 @@
 package com.go.jek.logic.executor;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.TreeSet;
 
@@ -112,7 +113,12 @@ public class ParkingLotExecutorEngineImpl implements ParkingLotExecutorEngine {
 	 * @param parsedData
 	 */
 	@Override
-	public void status(String[] parsedData) {
+	public void status() {
+		System.out.println("No\tRegistration Slot No.\tColour");
+		for (Map.Entry<Car, Integer> entry : slotCarAddress.entrySet()) {
+			Car car = entry.getKey();
+			System.out.println(entry.getValue() + "\t" + car.getRegistrationNo() + "\t\t" + car.getColour());
+		}
 
 	}
 
@@ -121,12 +127,12 @@ public class ParkingLotExecutorEngineImpl implements ParkingLotExecutorEngine {
 	 */
 	@Override
 	public void slotNoForRegistrationNo(String[] parsedData) {
-	  Integer slot =slotCarAddress.get(parsedData[1]);
-	  if(slot!=null){
-		  System.out.println(slot); 
-	  }else{
-		  System.out.println("Not found");
-	  }
-     
+		Integer slot = slotCarAddress.get(parsedData[1]);
+		if (slot != null) {
+			System.out.println(slot);
+		} else {
+			System.out.println("Not found");
+		}
+
 	}
 }

@@ -51,7 +51,7 @@ public class CommandManagerImpl implements CommandManager {
 			parkingLotExecutor.slotNoForRegistrationNo(parsedData);
 			break;
 		case STATUS:
-			parkingLotExecutor.status(parsedData);
+			parkingLotExecutor.status();
 			break;
 		default:
 			System.out.println(Constants.INVALID_SYNTAX);

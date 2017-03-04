@@ -35,9 +35,9 @@ public interface ParkingLotExecutorEngine {
 	void slotNoForCarWithColour(String[] parsedData);
 
 	/**
-	 * @param parsedData
+	 * Method for status
 	 */
-	void status(String[] parsedData);
+	void status();
 
 	/**
 	 * @param parsedData
