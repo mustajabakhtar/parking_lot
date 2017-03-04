@@ -3,13 +3,16 @@
  */
 package com.go.jek.logic.executor;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
-import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.TreeSet;
 
 import com.go.jek.constants.Constants;
 import com.go.jek.pojo.Car;
+import com.go.jek.pojo.Slot;
 
 /**
  * @author Mustajab Akhtar
@@ -115,9 +118,21 @@ public class ParkingLotExecutorEngineImpl implements ParkingLotExecutorEngine {
 	@Override
 	public void status() {
 		System.out.println("No\tRegistration Slot No.\tColour");
+		if (slotCarAddress.size() == 0) {
+			System.out.println("No car are present in the parking slot");
+			return;
+		}
+		List<Slot> listOfSlot = new ArrayList<Slot>();
 		for (Map.Entry<Car, Integer> entry : slotCarAddress.entrySet()) {
 			Car car = entry.getKey();
-			System.out.println(entry.getValue() + "\t" + car.getRegistrationNo() + "\t\t" + car.getColour());
+			Slot slot = new Slot();
+			slot.setSlotId(entry.getValue());
+			slot.setSlotAllocatedToCar(car);
+			listOfSlot.add(slot);
+		}
+		Collections.sort(listOfSlot, (o1, o2) -> o1.getSlotId().compareTo(o2.getSlotId()));
+		for (Slot slot : listOfSlot) {
+			System.out.println(slot.getSlotId() + "\t" + slot.getSlotAllocatedToCar().getRegistrationNo() + "\t\t" + slot.getSlotAllocatedToCar().getColour());
 		}
 
 	}
