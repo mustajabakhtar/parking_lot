@@ -91,6 +91,7 @@ public class ParkingLotExecutorEngineImpl implements ParkingLotExecutorEngine {
 		} else {
 			slotCarAddress.remove(car);
 			reversesSlotCarAddress.remove(Integer.valueOf(parsedData[Constants.ONE]));
+			minDistance.add(Integer.valueOf(parsedData[Constants.ONE]));
 			System.out.println("Slot number " + parsedData[Constants.ONE] + " is free");
 		}
 
@@ -101,7 +102,17 @@ public class ParkingLotExecutorEngineImpl implements ParkingLotExecutorEngine {
 	 */
 	@Override
 	public void registrationNoForCarWithColour(String[] parsedData) {
-
+		if (isSlotAddressEmpty()) {
+			return;
+		}
+		int counter = 0;
+		for (Map.Entry<Car, Integer> entry : slotCarAddress.entrySet()) {
+			Car car = entry.getKey();
+			if (car.getColour().equals(parsedData[Constants.ONE])) {
+				System.out.println(car.getRegistrationNo());
+			}
+		}
+		notFound(counter);
 	}
 
 	/**
@@ -109,7 +120,18 @@ public class ParkingLotExecutorEngineImpl implements ParkingLotExecutorEngine {
 	 */
 	@Override
 	public void slotNoForCarWithColour(String[] parsedData) {
-
+		if (isSlotAddressEmpty()) {
+			return;
+		}
+		int counter = 0;
+		for (Map.Entry<Car, Integer> entry : slotCarAddress.entrySet()) {
+			Car car = entry.getKey();
+			if (car.getColour().equals(parsedData[Constants.ONE])) {
+				System.out.println(entry.getValue());
+				counter++;
+			}
+		}
+		notFound(counter);
 	}
 
 	/**
@@ -118,8 +140,7 @@ public class ParkingLotExecutorEngineImpl implements ParkingLotExecutorEngine {
 	@Override
 	public void status() {
 		System.out.println("No\tRegistration Slot No.\tColour");
-		if (slotCarAddress.size() == 0) {
-			System.out.println("No car are present in the parking slot");
+		if (isSlotAddressEmpty()) {
 			return;
 		}
 		List<Slot> listOfSlot = new ArrayList<Slot>();
@@ -142,12 +163,32 @@ public class ParkingLotExecutorEngineImpl implements ParkingLotExecutorEngine {
 	 */
 	@Override
 	public void slotNoForRegistrationNo(String[] parsedData) {
-		Integer slot = slotCarAddress.get(parsedData[1]);
-		if (slot != null) {
-			System.out.println(slot);
-		} else {
-			System.out.println("Not found");
+		if (isSlotAddressEmpty()) {
+			return;
 		}
+		int counter = 0;
+		for (Map.Entry<Car, Integer> entry : slotCarAddress.entrySet()) {
+			Car car = entry.getKey();
+			if (car.getRegistrationNo().equals(parsedData[Constants.ONE])) {
+				System.out.println(entry.getValue());
+				counter++;
+			}
+		}
+		notFound(counter);
+	}
 
+	private Boolean isSlotAddressEmpty() {
+		if (slotCarAddress.size() == 0) {
+			System.out.println("No car are present in the parking slot");
+			return Boolean.TRUE;
+		} else {
+			return Boolean.FALSE;
+		}
+	}
+
+	private void notFound(int counter) {
+		if (counter == 0) {
+			System.out.println("Not Found");
+		}
 	}
 }
