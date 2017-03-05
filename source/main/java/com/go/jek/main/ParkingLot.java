@@ -48,7 +48,7 @@ public class ParkingLot {
 		CommandValidator commandValidator = new CommandValidatorImpl();
 		// Command parser initialization
 		CommandParser parser = new CommandParserImpl(commandManager, commandValidator);
-		File file = new File(classLoader.getResource("./" + fileName).getFile());
+		File file = new File(classLoader.getResource("./"+fileName).getFile());
 		try (Scanner scanner = new Scanner(file)) {
 			System.out.println("---------------------OUTPUT--------------------------");
 

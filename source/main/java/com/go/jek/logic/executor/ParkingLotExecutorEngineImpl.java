@@ -120,6 +120,7 @@ public class ParkingLotExecutorEngineImpl implements ParkingLotExecutorEngine {
 			Car car = entry.getKey();
 			if (car.getColour().equals(parsedData[Constants.ONE])) {
 				System.out.println(car.getRegistrationNo());
+				counter++;
 			}
 		}
 		notFound(counter);
