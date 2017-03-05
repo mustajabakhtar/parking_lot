@@ -29,7 +29,7 @@ public class ParkingLot {
 	 */
 	public static void main(String[] args) {
 		// Call method to read resource file
-		readResourceFile(args[0]);
+		readResourceFile("file_inputs.txt");
 
 	}
 
@@ -38,7 +38,7 @@ public class ParkingLot {
 	 * 
 	 * @param fileName
 	 */
-	private static void readResourceFile(String fileName) {
+	private static void  readResourceFile(String fileName) {
 		ClassLoader classLoader = ParkingLot.class.getClassLoader();
 		// Parking lot engine initialization
 		ParkingLotExecutorEngine ParkingLotExecutorEngine = new ParkingLotExecutorEngineImpl();
@@ -48,7 +48,7 @@ public class ParkingLot {
 		CommandValidator commandValidator = new CommandValidatorImpl();
 		// Command parser initialization
 		CommandParser parser = new CommandParserImpl(commandManager, commandValidator);
-		File file = new File(classLoader.getResource("./"+fileName).getFile());
+		File file = new File(classLoader.getResource(fileName).getFile());
 		try (Scanner scanner = new Scanner(file)) {
 			System.out.println("---------------------OUTPUT--------------------------");
 
@@ -60,6 +60,7 @@ public class ParkingLot {
 				parser.parse(line);
 			}
 		} catch (IOException ex) {
+			System.out.println(ex);
 		}
 		System.out.println("------------------------------------------------------");
 	}
