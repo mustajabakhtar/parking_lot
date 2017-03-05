@@ -14,11 +14,13 @@ import com.go.jek.pojo.Command;
 public class CommandManagerImpl implements CommandManager {
 
 	/**
-	 * 
+	 * Parking lot executor reference
 	 */
 	private ParkingLotExecutorEngine parkingLotExecutor;
 
 	/**
+	 * Constructor to initialize parking lot executor engine
+	 * 
 	 * @param parkingLotExecutor
 	 */
 	public CommandManagerImpl(ParkingLotExecutorEngine parkingLotExecutor) {
@@ -27,6 +29,8 @@ public class CommandManagerImpl implements CommandManager {
 	}
 
 	/**
+	 * Method to implement command director
+	 * 
 	 * @param command
 	 * @param parsedData
 	 */

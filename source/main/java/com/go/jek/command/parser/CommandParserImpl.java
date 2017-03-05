@@ -15,16 +15,18 @@ import com.go.jek.pojo.Command;
 public class CommandParserImpl implements CommandParser {
 
 	/**
-	 * 
+	 * Command manager reference
 	 */
 	private CommandManager commandManager;
 
 	/**
-	 * 
+	 * Command validator reference
 	 */
 	private CommandValidator validator;
 
 	/**
+	 * Constructor to initialize command manager and validator
+	 * 
 	 * @param commandManager
 	 */
 	public CommandParserImpl(CommandManager commandManager, CommandValidator validator) {
@@ -43,7 +45,7 @@ public class CommandParserImpl implements CommandParser {
 		String[] splittedCommand = command.split(" ");
 		if (splittedCommand.length > Constants.SYNTAX_LENGTH)
 			System.out.println(Constants.INVALID_SYNTAX);
-		Command validatorResponse = validator.validate(splittedCommand) ;
+		Command validatorResponse = validator.validate(splittedCommand);
 		if (validatorResponse != Command.INVALID_SYNTAX)
 			commandManager.commandDirector(validatorResponse, splittedCommand);
 	}

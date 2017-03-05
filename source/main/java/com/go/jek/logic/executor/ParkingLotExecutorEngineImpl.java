@@ -21,21 +21,23 @@ import com.go.jek.pojo.Slot;
 public class ParkingLotExecutorEngineImpl implements ParkingLotExecutorEngine {
 
 	/**
-	 * 
+	 * Slot car address reference
 	 */
 	private Map<Car, Integer> slotCarAddress;
 
 	/**
-	 * 
+	 * reverse slot car address reference
 	 */
 	private Map<Integer, Car> reversesSlotCarAddress;
 
 	/**
-	 * 
+	 * Min distance reference
 	 */
 	private TreeSet<Integer> minDistance;
 
 	/**
+	 * Constructor to initialize reference
+	 * 
 	 * @param slotCarAddress
 	 * @param storeEmptyLocation
 	 */
@@ -47,6 +49,8 @@ public class ParkingLotExecutorEngineImpl implements ParkingLotExecutorEngine {
 	}
 
 	/**
+	 * Method to create parking lot
+	 * 
 	 * @param parsedData
 	 */
 	@Override
@@ -58,6 +62,8 @@ public class ParkingLotExecutorEngineImpl implements ParkingLotExecutorEngine {
 	}
 
 	/**
+	 * Method to park cars
+	 * 
 	 * @param parsedData
 	 */
 	@Override
@@ -81,6 +87,8 @@ public class ParkingLotExecutorEngineImpl implements ParkingLotExecutorEngine {
 	}
 
 	/**
+	 * Method for leaving cars
+	 * 
 	 * @param parsedData
 	 */
 	@Override
@@ -98,6 +106,8 @@ public class ParkingLotExecutorEngineImpl implements ParkingLotExecutorEngine {
 	}
 
 	/**
+	 * Method to find registration number for car with colour
+	 * 
 	 * @param parsedData
 	 */
 	@Override
@@ -116,6 +126,8 @@ public class ParkingLotExecutorEngineImpl implements ParkingLotExecutorEngine {
 	}
 
 	/**
+	 * Method to fins slot number for cars with color
+	 * 
 	 * @param parsedData
 	 */
 	@Override
@@ -135,6 +147,8 @@ public class ParkingLotExecutorEngineImpl implements ParkingLotExecutorEngine {
 	}
 
 	/**
+	 * Method to find status
+	 * 
 	 * @param parsedData
 	 */
 	@Override
@@ -159,6 +173,8 @@ public class ParkingLotExecutorEngineImpl implements ParkingLotExecutorEngine {
 	}
 
 	/**
+	 * Method to find slot no for registration no
+	 * 
 	 * @param parsedData
 	 */
 	@Override
@@ -177,6 +193,10 @@ public class ParkingLotExecutorEngineImpl implements ParkingLotExecutorEngine {
 		notFound(counter);
 	}
 
+	/**
+	 * Method to find if the slot address is empty or not
+	 * 
+	 */
 	private Boolean isSlotAddressEmpty() {
 		if (slotCarAddress.size() == 0) {
 			System.out.println("No car are present in the parking slot");
@@ -186,6 +206,10 @@ public class ParkingLotExecutorEngineImpl implements ParkingLotExecutorEngine {
 		}
 	}
 
+	/**
+	 * Method implementing not found
+	 * 
+	 */
 	private void notFound(int counter) {
 		if (counter == 0) {
 			System.out.println("Not Found");

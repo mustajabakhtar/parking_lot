@@ -5,6 +5,8 @@ package com.go.jek.command.validator;
 
 import com.go.jek.constants.Constants;
 import com.go.jek.pojo.Command;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * @author Mustajab Akhtar
@@ -65,6 +67,7 @@ public class CommandValidatorImpl implements CommandValidator {
 		case "StringType":
 			return Boolean.TRUE;
 		case "RegEx":
+			//Implement the regex for number plate
 			return Boolean.TRUE;
 		}
 		return Boolean.FALSE;
