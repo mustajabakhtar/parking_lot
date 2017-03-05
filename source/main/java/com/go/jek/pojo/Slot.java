@@ -10,12 +10,12 @@ package com.go.jek.pojo;
 public class Slot {
 
 	/**
-     * 
-     */
+	 * Reference for slot id
+	 */
 	private Integer slotId;
 
 	/**
-	 * 
+	 * Reference for slot allocated to car
 	 */
 	private Car slotAllocatedToCar;
 

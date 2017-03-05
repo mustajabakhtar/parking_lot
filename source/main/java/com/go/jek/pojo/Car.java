@@ -10,12 +10,12 @@ package com.go.jek.pojo;
 public class Car {
 
 	/**
-	 * 
+	 * Reference for registration no
 	 */
 	private String registrationNo;
 
 	/**
-	 * 
+	 * Reference for color
 	 */
 	private String colour;
 
@@ -49,6 +49,9 @@ public class Car {
 		this.colour = colour;
 	}
 
+	/**
+	 * Method to implement hashcode
+	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -57,6 +60,9 @@ public class Car {
 		return result;
 	}
 
+	/**
+	 * Method to implement equal
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)

@@ -23,6 +23,8 @@ import com.go.jek.logic.executor.ParkingLotExecutorEngineImpl;
 public class ParkingLot {
 
 	/**
+	 * Main method
+	 * 
 	 * @param args
 	 */
 	public static void main(String[] args) {

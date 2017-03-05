@@ -55,6 +55,8 @@ public class CommandValidatorImpl implements CommandValidator {
 	}
 
 	/**
+	 * Method to validate value
+	 * 
 	 * @param value
 	 * @param type
 	 * @return
@@ -67,7 +69,7 @@ public class CommandValidatorImpl implements CommandValidator {
 		case "StringType":
 			return Boolean.TRUE;
 		case "RegEx":
-			//Implement the regex for number plate
+			// Implement the regex for number plate
 			return Boolean.TRUE;
 		}
 		return Boolean.FALSE;
